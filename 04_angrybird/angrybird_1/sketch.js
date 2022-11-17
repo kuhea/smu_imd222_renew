@@ -1,7 +1,8 @@
-const { Engine, World, Bodies, Mouse, MouseConstraint, Constraint } = Matter;
+const { Engine, World, Bodies, Mouse, MouseConstraint, Constraint, Composite } =
+  Matter;
 
 let ground;
-const boxes = [];
+let boxes = [];
 let bird;
 let world, engine;
 let mConstraint;
@@ -23,13 +24,13 @@ function setup() {
   world = engine.world;
 
   ground = new Ground(width / 2, height - 10, width, 20);
-  for (let i = 0; i < 3; i++) {
-    boxes[i] = new Box(450, 300 - i * 75, 90, 90);
+  for (let i = 0; i < 4; i++) {
+    boxes[i] = new Box(500, 300 - i * 75, 90, 90);
   }
 
-  bird = new Bird(150, 300, 25);
+  bird = new Bird(200, 300, 25);
 
-  slingshot = new SlingShot(150, 300, bird.body);
+  slingshot = new SlingShot(200, 300, bird.body);
 
   const mouse = Mouse.create(canvas.elt);
   const options = {
@@ -44,8 +45,14 @@ function setup() {
 function keyPressed() {
   if (key == " ") {
     World.remove(world, bird.body);
-    bird = new Bird(150, 300, 25);
+    bird = new Bird(200, 300, 25);
     slingshot.attach(bird.body);
+  }
+  if (key == "a") {
+    box = new Box(600, 100, 90, 90);
+    World.add(world, box.body);
+    console.log("나 여기 살아있다.");
+    box.show();
   }
 }
 

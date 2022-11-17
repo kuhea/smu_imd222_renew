@@ -10,10 +10,10 @@ let ground1;
 let ground2;
 
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(innerWidth, innerHeight);
   engine = Engine.create();
   ground1 = new Rect(400, 610, 810, 60, "#C0AAA9", { isStatic: true });
-  ground2 = new Rect(200, 400, 200, 60, "#C0AAA9");
+  ground2 = new Rect(200, 400, 200, 60, "#C0AAA9", { isStatic: true });
   // ground2 = new Rect(200, 300, 200, 60, "#C0AAA9", { isStatic: true });
   Composite.add(engine.world, ground1.bodies, ground2.bodies);
 }
