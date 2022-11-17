@@ -3,7 +3,11 @@ let engine = Matter.Engine.create();
 let rederer = Matter.Render.create({
   element: document.body,
   engine: engine,
-  options: { height: 600, width: 800, wireframes: false },
+  options: {
+    height: 600,
+    width: 800,
+    wireframes: false,
+  },
 });
 
 let ground = Matter.Bodies.rectangle(600, 400, 250, 30, {
@@ -26,7 +30,7 @@ let composite = Matter.Composites.pyramid(
     return Matter.Bodies.rectangle(x, y, 20, 20, {
       render: {
         sprite: {
-          texture: "./bird2.svg",
+          texture: "./assets/bird2.svg",
         },
       },
     });
@@ -41,7 +45,7 @@ let ball_pos = {
 let ball = Matter.Bodies.circle(ball_pos.x, ball_pos.y, 20, {
   render: {
     sprite: {
-      texture: "./bird1.svg",
+      texture: "./assets/bird1.svg",
     },
   },
 });
@@ -76,8 +80,8 @@ Matter.Events.on(mouseConstraint, "enddrag", function (event) {
 });
 
 Matter.Events.on(engine, "afterUpdate", function (event) {
-  let dist_x = Math.abs(ball.position.x - ball.pos.x);
-  let dist_y = Math.abs(ball.position.y - ball.pos.y);
+  let dist_x = Math.abs(ball.position.x - ball_pos.x);
+  let dist_y = Math.abs(ball.position.y - ball_pos.y);
   if (isFired && dist_x < 20 && dist_y < 20) {
     ball = Matter.Bodies.circle(ball_pos.x, ball_pos.y, 20, {
       render: {
