@@ -48,12 +48,12 @@ function keyPressed() {
     bird = new Bird(200, 300, 25);
     slingshot.attach(bird.body);
   }
-  if (key == "a") {
-    box = new Box(600, 100, 90, 90);
-    World.add(world, box.body);
-    console.log("나 여기 살아있다.");
-    box.show();
-  }
+  // if (key == "a") {
+  //   box = new Box(600, 100, 90, 90);
+  //   World.add(world, box.body);
+  //   console.log("나 여기 살아있다.");
+  //   box.show();
+  // }
 }
 
 function mouseReleased() {
