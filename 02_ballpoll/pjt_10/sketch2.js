@@ -266,6 +266,7 @@ function draw() {
   fill(255, 0, 0);
   text("gamma: " + gamma, 25, 75);
 
+  //노란물체들
   noStroke();
   matterObjs.forEach((obj) => {
     if (mouseConstraint.body === obj.body) {
@@ -279,16 +280,19 @@ function draw() {
   stroke(0);
   matterObjs.forEach((obj) => obj.renderDirVector());
 
+  //벽
   noStroke();
   fill("#12a");
   boundaries.forEach((boundary) => boundary.renderBody());
 
+  //마우스 누르면 나오는 것들
   noStroke();
   fill("#FF8C58");
   for (let i = 0; i < boxes.length; i++) {
     boxes[i].renderBody();
   }
 
+  //장애물
   matterBodies.forEach((body) => {
     body.render();
   });
