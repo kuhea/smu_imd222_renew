@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>W_11</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.js"></script>
+    <!-- defer 다 끝나고 넣어주세요
+        sketch 아래로 보내는게 더 안정적 -->
+    <style>
+      * {
+        /* 모든걸 이야기함. 기본 스타일링 없애기 위해 */
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+      #p5Canvas {
+        margin-inline: auto;
+        /* 가운데 정렬. inline은 좌우만 넣어주면 됨 */
+        /* background-color: blue; */
+        height: 100vh;
+        /* 이건 뷰포트 하이트. 내 창의 높이를 씀. 100vh = full */
+        width: 90vw;
+        /* 100vw는 스크롤이 발생함 */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- .aaa
+        <div class="aaa"></div>
+        #aaa
+        <div id="aaa"></div> -->
+    <div id="p5Canvas">타일링 예제</div>
+    <script src="./sketch.js"></script>
+  </body>
+</html>
